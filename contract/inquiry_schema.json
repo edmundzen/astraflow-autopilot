@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "InquiryClassification",
+  "description": "Contract: what Drago must extract from every inbound inquiry email before drafting.",
+  "type": "object",
+  "required": ["intent", "confidence"],
+  "properties": {
+    "intent": { "enum": ["booking", "inquiry", "spam"] },
+    "service_domain": {
+      "enum": ["cloud_migration", "kubernetes", "ai_agents", "security", "space_solutions", "consulting", null]
+    },
+    "requested_time": { "type": ["string", "null"] },
+    "team_size": { "type": ["integer", "null"] },
+    "budget": { "type": ["string", "null"] },
+    "confidence": { "type": "number", "minimum": 0, "maximum": 1 }
+  }
+}
